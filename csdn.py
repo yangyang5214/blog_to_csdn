@@ -7,9 +7,13 @@
 
 class Csdn:
 
-    def __init__(self):
-        pass
+    def __init__(self, cookies, url,form_data):
+        self.cookies = cookies
+        self.url = url
+        self.headers = self.build_headers(self)
+        self.form_data = form_data
 
-    def put(self, content):
-        print('发布新文章:1' + content)
-        pass
+    @staticmethod
+    def build_headers(self):
+        headers = {'cookie': self.cookies}
+        return headers
