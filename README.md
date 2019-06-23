@@ -2,6 +2,9 @@
 
 > markdown 格式的文件，发布到csdn
 
+效果图：
+
+![](https://beer-1256523277.cos.ap-shanghai.myqcloud.com/20190623091626_8c31bfeeccf70c2b4152ba5a2a5dda27.png)
 
 ### 缺点
 

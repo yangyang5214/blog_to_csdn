@@ -43,8 +43,8 @@ def build_form_data(file, content, content_html, tags):
 
 def get_all_file(path):
     file_list = os.listdir(path)
-    if len(file_list) >= 5:
-        return file_list[0:5]
+    if len(file_list) >= 9:
+        return file_list[0:9]
     else:
         return file_list
 
