@@ -22,7 +22,7 @@ def put_article(csdn):
         return response_json['error']
 
 
-def build_form_data(file, content, content_html, tags):
+def build_form_data(file, content, content_html, tags, description):
     form_data = {
         'title': file,
         'markdowncontent': content,
@@ -36,7 +36,7 @@ def build_form_data(file, content, content_html, tags):
         'channel': 1,
         'type': 'original',
         'articleedittype': '1',
-        'Description': 1
+        'Description': description
     }
     return form_data
 
@@ -69,7 +69,9 @@ def get_content(path):
 
     content = content[content.rindex("---"):]
 
-    return content, title, tags
+    description = content[0:20]
+
+    return content, title, tags, description
 
 
 if __name__ == '__main__':
@@ -79,9 +81,9 @@ if __name__ == '__main__':
 
     file_list = get_all_file(path)
     for file in file_list:
-        content, title, tags = get_content(path + file)
+        content, title, tags, description = get_content(path + file)
         content_html = markdown.markdown(content)
-        form_data = build_form_data(title, content, content_html, tags)
+        form_data = build_form_data(title, content, content_html, tags, description)
         csdn_obj = csdn.Csdn(cookies, csdn_url, form_data)
         result = put_article(csdn_obj)
         if result is not None:
